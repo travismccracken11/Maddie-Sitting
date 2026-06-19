@@ -50,7 +50,7 @@
       letter-spacing: -0.03em;
     }
 
-    .subtitle {
+    .page-subtitle {
       margin: 0;
       color: var(--muted);
       font-size: 16px;
@@ -119,7 +119,7 @@
     }
 
     .video-block {
-      margin: 16px 0 22px;
+      margin: 18px 0 26px;
     }
 
     .video-block:last-child {
@@ -133,14 +133,22 @@
       margin: 0 0 8px;
     }
 
-    video {
+    .drive-player {
+      width: 100%;
+      height: min(72vh, 680px);
+      min-height: 430px;
+      background: #000;
+      border: 1px solid #222;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .drive-player iframe {
       display: block;
       width: 100%;
-      height: auto;
-      max-height: none;
+      height: 100%;
+      border: 0;
       background: #000;
-      border-radius: 14px;
-      border: 1px solid #222;
     }
 
     .button-row {
@@ -161,15 +169,6 @@
       font-weight: 700;
     }
 
-    .missing-video {
-      background: #f1eee8;
-      border: 1px dashed #cfc7b8;
-      border-radius: 14px;
-      padding: 14px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
     #backToTop {
       position: fixed;
       right: 18px;
@@ -180,10 +179,10 @@
       border: 0;
       background: var(--accent);
       color: #fff;
-      width: 52px;
-      height: 52px;
+      width: 54px;
+      height: 54px;
       border-radius: 999px;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
       line-height: 1;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
@@ -199,6 +198,13 @@
       font-size: 13px;
       padding: 22px 0 40px;
       text-align: center;
+    }
+
+    @media (max-width: 430px) {
+      .drive-player {
+        height: 66vh;
+        min-height: 390px;
+      }
     }
 
     @media (prefers-color-scheme: dark) {
@@ -217,11 +223,6 @@
       #backToTop {
         color: #111;
       }
-
-      .missing-video {
-        background: #202020;
-        border-color: #444;
-      }
     }
   </style>
 </head>
@@ -230,7 +231,7 @@
   <main class="wrap" id="top">
     <header>
       <h1>Maddie & House Stuff</h1>
-      <p class="subtitle">Quick videos and notes for taking care of Maddie and basic house stuff.</p>
+      <p class="page-subtitle">Quick videos and notes for taking care of Maddie and basic house stuff.</p>
     </header>
 
     <div class="notice">
@@ -254,19 +255,27 @@
 
       <div class="video-block">
         <p class="video-title">Feeding Maddie — Video 1</p>
-        <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1p-PgzjJ-abeBd0a8-obhOXr1rBKW6Qhi"></video>
+        <div class="drive-player">
+          <iframe src="https://drive.google.com/file/d/1p-PgzjJ-abeBd0a8-obhOXr1rBKW6Qhi/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
         <div class="button-row">
           <a class="button" href="https://drive.google.com/file/d/1p-PgzjJ-abeBd0a8-obhOXr1rBKW6Qhi/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
       </div>
 
-      <div class="video-block" data-video-link="PASTE_SECOND_FEEDING_VIDEO_LINK_HERE">
+      <!--
+      Paste the second Feeding Maddie video here when you have the link:
+
+      <div class="video-block">
         <p class="video-title">Feeding Maddie — Video 2</p>
-        <div class="missing-video">
-          Paste the 2nd Feeding Maddie Google Drive link into the code where it says:
-          <br><strong>PASTE_SECOND_FEEDING_VIDEO_LINK_HERE</strong>
+        <div class="drive-player">
+          <iframe src="https://drive.google.com/file/d/PASTE_FILE_ID_HERE/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="button-row">
+          <a class="button" href="https://drive.google.com/file/d/PASTE_FILE_ID_HERE/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
       </div>
+      -->
     </section>
 
     <section class="card" id="maddie-water">
@@ -278,7 +287,9 @@
 
       <div class="video-block">
         <p class="video-title">Maddie Water</p>
-        <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1lZZnOBEpJqhT5S7gf2WYfEwZHOExf8kz"></video>
+        <div class="drive-player">
+          <iframe src="https://drive.google.com/file/d/1lZZnOBEpJqhT5S7gf2WYfEwZHOExf8kz/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
         <div class="button-row">
           <a class="button" href="https://drive.google.com/file/d/1lZZnOBEpJqhT5S7gf2WYfEwZHOExf8kz/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
@@ -294,7 +305,9 @@
 
       <div class="video-block">
         <p class="video-title">Letting Maddie Outside — Video 1</p>
-        <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=11xssbNrdKjFNy7IPyG44sOIRb2J5E2_G"></video>
+        <div class="drive-player">
+          <iframe src="https://drive.google.com/file/d/11xssbNrdKjFNy7IPyG44sOIRb2J5E2_G/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
         <div class="button-row">
           <a class="button" href="https://drive.google.com/file/d/11xssbNrdKjFNy7IPyG44sOIRb2J5E2_G/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
@@ -302,7 +315,9 @@
 
       <div class="video-block">
         <p class="video-title">Letting Maddie Outside — Video 2</p>
-        <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1dLUk9kDLfUf7HBSePhEUEdGsNe1PEVSZ"></video>
+        <div class="drive-player">
+          <iframe src="https://drive.google.com/file/d/1dLUk9kDLfUf7HBSePhEUEdGsNe1PEVSZ/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
         <div class="button-row">
           <a class="button" href="https://drive.google.com/file/d/1dLUk9kDLfUf7HBSePhEUEdGsNe1PEVSZ/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
@@ -310,7 +325,9 @@
 
       <div class="video-block">
         <p class="video-title">Letting Maddie Outside — Video 3</p>
-        <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1mzdAleg6ciLqN-uA75sortcMb4uoCvKt"></video>
+        <div class="drive-player">
+          <iframe src="https://drive.google.com/file/d/1mzdAleg6ciLqN-uA75sortcMb4uoCvKt/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
         <div class="button-row">
           <a class="button" href="https://drive.google.com/file/d/1mzdAleg6ciLqN-uA75sortcMb4uoCvKt/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
@@ -323,7 +340,9 @@
 
       <div class="video-block">
         <p class="video-title">Background Noise</p>
-        <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1cqPencxv-uBujtpOosQvlTHn1Sl4lrGN"></video>
+        <div class="drive-player">
+          <iframe src="https://drive.google.com/file/d/1cqPencxv-uBujtpOosQvlTHn1Sl4lrGN/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
         <div class="button-row">
           <a class="button" href="https://drive.google.com/file/d/1cqPencxv-uBujtpOosQvlTHn1Sl4lrGN/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
@@ -336,7 +355,9 @@
 
       <div class="video-block">
         <p class="video-title">Controlling TV</p>
-        <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1XCjyyQGooz73wDf4kfJ_N_HNoMtG0-Rr"></video>
+        <div class="drive-player">
+          <iframe src="https://drive.google.com/file/d/1XCjyyQGooz73wDf4kfJ_N_HNoMtG0-Rr/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
         <div class="button-row">
           <a class="button" href="https://drive.google.com/file/d/1XCjyyQGooz73wDf4kfJ_N_HNoMtG0-Rr/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
