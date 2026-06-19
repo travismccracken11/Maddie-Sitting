@@ -1,13 +1,10 @@
-You’re right — that iframe approach is what made it look cropped. This version uses a normal <video controls> player instead.
-
-You’re still missing the 2nd Feeding Maddie video link, so I left that one as an easy-to-find empty string: PASTE_SECOND_FEEDING_VIDEO_LINK_HERE.
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Maddie & House Stuff</title>
+
   <style>
     :root {
       --bg: #f6f3ee;
@@ -19,12 +16,15 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       --notice-bg: #fff7d6;
       --notice-border: #eadb92;
     }
+
     * {
       box-sizing: border-box;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -32,25 +32,30 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       color: var(--text);
       line-height: 1.45;
     }
+
     .wrap {
       max-width: 820px;
       margin: 0 auto;
       padding: 18px;
     }
+
     header {
       padding: 18px 0 10px;
     }
+
     h1 {
       font-size: 32px;
       line-height: 1.08;
       margin: 0 0 8px;
       letter-spacing: -0.03em;
     }
+
     .subtitle {
       margin: 0;
       color: var(--muted);
       font-size: 16px;
     }
+
     .notice {
       background: var(--notice-bg);
       border: 1px solid var(--notice-border);
@@ -59,6 +64,7 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       margin: 18px 0;
       font-size: 15px;
     }
+
     .nav {
       display: flex;
       gap: 8px;
@@ -67,6 +73,7 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       margin: 10px 0 4px;
       -webkit-overflow-scrolling: touch;
     }
+
     .nav a {
       white-space: nowrap;
       display: inline-block;
@@ -78,6 +85,7 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       padding: 9px 12px;
       font-size: 14px;
     }
+
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -86,37 +94,45 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       margin: 16px 0;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     }
+
     .card h2 {
       font-size: 27px;
       line-height: 1.12;
       margin: 0 0 14px;
       letter-spacing: -0.025em;
     }
+
     .section-subtitle {
       font-size: 18px;
       font-weight: 700;
       margin: 4px 0 12px;
     }
+
     ul {
       margin: 0 0 14px;
       padding-left: 20px;
     }
+
     li {
       margin: 6px 0;
       font-size: 16px;
     }
+
     .video-block {
       margin: 16px 0 22px;
     }
+
     .video-block:last-child {
       margin-bottom: 4px;
     }
+
     .video-title {
       font-size: 15px;
       font-weight: 700;
       color: var(--muted);
       margin: 0 0 8px;
     }
+
     video {
       display: block;
       width: 100%;
@@ -126,12 +142,14 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       border-radius: 14px;
       border: 1px solid #222;
     }
+
     .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-top: 10px;
     }
+
     .button {
       display: inline-block;
       text-decoration: none;
@@ -142,6 +160,7 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       font-size: 14px;
       font-weight: 700;
     }
+
     .missing-video {
       background: #f1eee8;
       border: 1px dashed #cfc7b8;
@@ -150,6 +169,7 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       color: var(--muted);
       font-size: 14px;
     }
+
     #backToTop {
       position: fixed;
       right: 18px;
@@ -169,15 +189,18 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
       cursor: pointer;
     }
+
     #backToTop.show {
       display: block;
     }
+
     footer {
       color: var(--muted);
       font-size: 13px;
       padding: 22px 0 40px;
       text-align: center;
     }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #111111;
@@ -189,10 +212,12 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
         --notice-bg: #332b0e;
         --notice-border: #67571c;
       }
+
       .button,
       #backToTop {
         color: #111;
       }
+
       .missing-video {
         background: #202020;
         border-color: #444;
@@ -200,15 +225,18 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
     }
   </style>
 </head>
+
 <body>
   <main class="wrap" id="top">
     <header>
       <h1>Maddie & House Stuff</h1>
       <p class="subtitle">Quick videos and notes for taking care of Maddie and basic house stuff.</p>
     </header>
+
     <div class="notice">
       <strong>Note:</strong> If a video does not play on the page, tap <strong>Open video directly</strong> under it.
     </div>
+
     <nav class="nav" aria-label="Page sections">
       <a href="#feeding-maddie">Feeding</a>
       <a href="#maddie-water">Water</a>
@@ -216,12 +244,14 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
       <a href="#random-maddie-things">Random</a>
       <a href="#house-stuff">House</a>
     </nav>
+
     <section class="card" id="feeding-maddie">
       <h2>Feeding Maddie</h2>
       <ul>
         <li>Use these videos as the main reference for where everything is and how to feed her.</li>
         <li>Make sure she has water after eating.</li>
       </ul>
+
       <div class="video-block">
         <p class="video-title">Feeding Maddie — Video 1</p>
         <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1p-PgzjJ-abeBd0a8-obhOXr1rBKW6Qhi"></video>
@@ -229,6 +259,7 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
           <a class="button" href="https://drive.google.com/file/d/1p-PgzjJ-abeBd0a8-obhOXr1rBKW6Qhi/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
       </div>
+
       <div class="video-block" data-video-link="PASTE_SECOND_FEEDING_VIDEO_LINK_HERE">
         <p class="video-title">Feeding Maddie — Video 2</p>
         <div class="missing-video">
@@ -237,12 +268,14 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
         </div>
       </div>
     </section>
+
     <section class="card" id="maddie-water">
       <h2>Maddie Water</h2>
       <ul>
         <li>Use this video as the main reference for her water setup.</li>
         <li>Check and refill her water as needed.</li>
       </ul>
+
       <div class="video-block">
         <p class="video-title">Maddie Water</p>
         <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1lZZnOBEpJqhT5S7gf2WYfEwZHOExf8kz"></video>
@@ -251,12 +284,14 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
         </div>
       </div>
     </section>
+
     <section class="card" id="letting-maddie-outside">
       <h2>Letting Maddie Outside</h2>
       <ul>
         <li>Use these videos as the main reference for letting her out.</li>
         <li>Make sure the door is closed and locked again afterward.</li>
       </ul>
+
       <div class="video-block">
         <p class="video-title">Letting Maddie Outside — Video 1</p>
         <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=11xssbNrdKjFNy7IPyG44sOIRb2J5E2_G"></video>
@@ -264,6 +299,7 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
           <a class="button" href="https://drive.google.com/file/d/11xssbNrdKjFNy7IPyG44sOIRb2J5E2_G/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
       </div>
+
       <div class="video-block">
         <p class="video-title">Letting Maddie Outside — Video 2</p>
         <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1dLUk9kDLfUf7HBSePhEUEdGsNe1PEVSZ"></video>
@@ -271,6 +307,7 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
           <a class="button" href="https://drive.google.com/file/d/1dLUk9kDLfUf7HBSePhEUEdGsNe1PEVSZ/view" target="_blank" rel="noopener">Open video directly</a>
         </div>
       </div>
+
       <div class="video-block">
         <p class="video-title">Letting Maddie Outside — Video 3</p>
         <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1mzdAleg6ciLqN-uA75sortcMb4uoCvKt"></video>
@@ -279,9 +316,11 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
         </div>
       </div>
     </section>
+
     <section class="card" id="random-maddie-things">
       <h2>Random Maddie Things</h2>
       <p class="section-subtitle">Background noise:</p>
+
       <div class="video-block">
         <p class="video-title">Background Noise</p>
         <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1cqPencxv-uBujtpOosQvlTHn1Sl4lrGN"></video>
@@ -290,9 +329,11 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
         </div>
       </div>
     </section>
+
     <section class="card" id="house-stuff">
       <h2>House Stuff</h2>
       <p class="section-subtitle">Controlling TV:</p>
+
       <div class="video-block">
         <p class="video-title">Controlling TV</p>
         <video controls playsinline preload="metadata" src="https://drive.google.com/uc?export=download&id=1XCjyyQGooz73wDf4kfJ_N_HNoMtG0-Rr"></video>
@@ -301,13 +342,17 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
         </div>
       </div>
     </section>
+
     <footer>
       Please text us if anything is unclear.
     </footer>
   </main>
+
   <button id="backToTop" type="button" aria-label="Back to top">↑</button>
+
   <script>
     const backToTop = document.getElementById("backToTop");
+
     function toggleBackToTop() {
       if (window.scrollY > window.innerHeight) {
         backToTop.classList.add("show");
@@ -315,12 +360,14 @@ You’re still missing the 2nd Feeding Maddie video link, so I left that one as 
         backToTop.classList.remove("show");
       }
     }
+
     backToTop.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
     });
+
     window.addEventListener("scroll", toggleBackToTop, { passive: true });
     toggleBackToTop();
   </script>
